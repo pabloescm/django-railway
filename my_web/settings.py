@@ -129,3 +129,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "web/static"),
     # (... add more paths as needed...)
 ]
+
+ALLOWED_HOSTS = ['localhost','web-production-190b.up.railway.app']
