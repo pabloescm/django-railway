@@ -15,7 +15,7 @@ import os
 from dotenv import load_dotenv
 import dj_database_url
 
-load_dotenv() # load.env file
+#load_dotenv() # load.env file
 
 
 
@@ -85,10 +85,14 @@ WSGI_APPLICATION = 'my_web.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+"""
 DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
-
+"""
+DATABASES = {
+    'default': dj_database_url.config(default='postgresql://postgres:ekrOFOAFeEHHLOjIxjWDbGvBhuzltTVJ@postgres.railway.internal:5432/railway')
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
