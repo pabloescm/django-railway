@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'whitenoise.runserver_nostatic',
+    'whitenoise.runserver_nostatic', # whitenoise server side for static files
     'web',
     'home',
 ]
@@ -127,18 +127,26 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+
+# Configuracion de staticfiles
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "web/static"),
     # (... add more paths as needed...)
 ]
 
+#Rutas estaticas de la aplicacion
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
+# Permitir host en produccion
 ALLOWED_HOSTS = ['localhost','web-production-190b.up.railway.app']
 
+# Configuracion de whitenoise
 STORAGES = {
     # ...
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+
+CSRF_TRUSTED_ORIGINS = ['http://*','https://web-production-190b.up.railway.app']
