@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+
+import psycopg2
 from dotenv import load_dotenv
 import dj_database_url
 
@@ -90,16 +92,19 @@ DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 """
-print("mi variable =")
-print(os.getenv('DATABASES_URL'))
-"""
+print(f"DATABASE_URL={os.getenv('DATABASE_URL')}")
+
+
 DATABASES = {
      'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
+
 """
 DATABASES = {
-     'default': dj_database_url.config(default="postgresql://postgres:ekrOFOAFeEHHLOjIxjWDbGvBhuzltTVJ@postgres.railway.internal:5432/railway")
-}
+     'default': psycopg2.connect(default="postgresql://postgres:ekrOFOAFeEHHLOjIxjWDbGvBhuzltTVJ@postgres.railway.internal:5432/railway")
+}"""
+
+
 
 """
 DATABASES = {
