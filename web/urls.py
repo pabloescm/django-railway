@@ -6,6 +6,7 @@ router = DefaultRouter()
 router.register(r'category', views.CategoriaViewSet)
 
 urlpatterns = [
+    path('', views.render_articles, name='articles'),
     path('', include(router.urls)),
-    path('articles/', views.render_articles, name='articles'),
+    #path('articles/', include(router.urls)),
 ]
