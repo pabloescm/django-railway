@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'whitenoise.runserver_nostatic', # whitenoise server side for static files
     'web',
     'home',
