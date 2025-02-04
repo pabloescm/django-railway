@@ -15,7 +15,7 @@ import os
 from dotenv import load_dotenv
 import dj_database_url
 
-#load_dotenv() # load.env file
+load_dotenv() # load.env file
 
 
 
@@ -89,18 +89,26 @@ WSGI_APPLICATION = 'my_web.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
-
+"""
+print("mi variable =")
+print(os.getenv('DATABASES_URL'))
+"""
 DATABASES = {
-    'default': dj_database_url.config(default='postgresql://postgres:ekrOFOAFeEHHLOjIxjWDbGvBhuzltTVJ@postgres.railway.internal:5432/railway')
-}"""
+     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+}
+"""
+DATABASES = {
+     'default': dj_database_url.config(default="postgresql://postgres:ekrOFOAFeEHHLOjIxjWDbGvBhuzltTVJ@postgres.railway.internal:5432/railway")
+}
 
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+"""
 
 
 # Password validation
@@ -156,7 +164,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Permitir host en produccion
-ALLOWED_HOSTS = ['localhost','web-production-190b.up.railway.app']
+ALLOWED_HOSTS = ['web-production-190b.up.railway.app','127.0.0.1']
 
 # Configuracion de whitenoise
 STORAGES = {
